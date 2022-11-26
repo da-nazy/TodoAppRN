@@ -2,7 +2,7 @@ import react,{useState} from 'react'
 import { TextInput,StyleSheet,View, TouchableOpacity } from "react-native";
 import Icon from "react-native-vector-icons/FontAwesome5";
 import { colors } from "../../asset/color";
-export const InputCont=({name,secure,icon,borderColor,textColor})=>{
+export const InputCont=({name,secure,icon,borderColor,textColor,iconColor})=>{
     const [inputToggle,setInputToggle]=useState(false);
     
     return(
@@ -15,7 +15,7 @@ export const InputCont=({name,secure,icon,borderColor,textColor})=>{
         secureTextEntry={secure}
      />
     {icon&&<TouchableOpacity style={styles.iconCont} onPress={()=>setInputToggle(!inputToggle)}>
-     <Icon name={icon} size={20} color={inputToggle?colors.third:colors.secondary}/>
+     <Icon name={icon} size={20} color={inputToggle?colors.third:iconColor?iconColor:colors.secondary}/>
      </TouchableOpacity>}
     </View>
     )

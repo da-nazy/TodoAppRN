@@ -2,9 +2,11 @@ import React from 'react'
 import { View,StyleSheet, TouchableOpacity,Text } from 'react-native'
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import { colors } from '../../asset/color';
-export default function TodoCard({isActive,name,desc,time,icon}) {
+export default function TodoCard({isActive,name,desc,time,icon,func}) {
   return (
-     <TouchableOpacity style={{...style.cont,backgroundColor:isActive?colors.third:colors.primary}}>
+     <TouchableOpacity 
+     onPress={()=>func&&func()}
+     style={{...style.cont,backgroundColor:isActive?colors.third:colors.primary}}>
       <View style={style.headCont}>
         <Text style={style.descTxt}>{name?name:'Design Logo'}</Text>
        {isActive&&<TouchableOpacity>

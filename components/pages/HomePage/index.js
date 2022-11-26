@@ -1,9 +1,21 @@
+import react,{useRef} from 'react'
 import { View,ScrollView, Dimensions,StyleSheet,Text,Image, TouchableOpacity} from "react-native"
 import { colors } from "../../../asset/color";
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import menu from '../../../asset/image/menu.png'
 import TodoCard from "../../HomePage/TodoCard";
+import Custombtm from "../../Util/Custombtm";
+import { CreateTodo } from '../../Todo';
+import { EditTodo } from '../../Todo/edit';
 export const HomePage=()=>{
+    const editTodoRef=useRef(null);
+    const createTodoRef=useRef(null);
+    const openEditTodo=()=>{
+        editTodoRef.current.open(); 
+    }
+    const openCreateTodo=()=>{
+        createTodoRef.current.open();
+    }
     return(
         <View 
         style={style.cont}
@@ -23,12 +35,20 @@ export const HomePage=()=>{
 
         </View>
         <ScrollView>
-            <TodoCard isActive={true}/>
-            <TodoCard isActive={false}/>
+            <TodoCard isActive={true} func={()=>openCreateTodo()}/>
+            <TodoCard isActive={false} func={()=>openCreateTodo()}/>
         </ScrollView>
-        <TouchableOpacity style={style.fabCont}>
+        <TouchableOpacity style={style.fabCont} onPress={()=>openEditTodo()}>
             <Icon name={'plus'} size={30} color={'#fff'}/>
         </TouchableOpacity>
+        <Custombtm 
+        displayComp={()=><CreateTodo/>} 
+        btmRef={createTodoRef} 
+        height={Dimensions.get('screen').height} cod={true} copm={true}/>
+        <Custombtm 
+        displayComp={()=><EditTodo/>} 
+        btmRef={editTodoRef} 
+        height={Dimensions.get('screen').height} cod={true} copm={true}/>
         </View>
     )
 }
