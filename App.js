@@ -1,19 +1,19 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
-
+import React,{useState,useRef,useEffect} from 'react';
+import { StyleSheet, Text, View,Button } from 'react-native';
+import Signin from './components/pages/Signin/Signin';
+import Signup from './components/pages/Signup';
+import Changepassword from './components/pages/ChangePassword';
+import { HomePage } from './components/pages/HomePage';
+import { CreateTodoList } from './components/CreateTodoList';
 export default function App() {
   return (
     <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
+     <CreateTodoList/>
     </View>
   );
 }
 
-export function Test(){
-
-}
 
 const styles = StyleSheet.create({
   container: {
