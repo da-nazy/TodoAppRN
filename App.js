@@ -7,15 +7,11 @@ import Changepassword from './components/pages/ChangePassword';
 import { HomePage } from './components/pages/HomePage';
 import { CreateTodo } from './components/Todo';
 import { EditTodo } from './components/Todo/edit';
-import Custombtm from './components/Util/Custombtm';
+import { TodoDetail } from './components/Todo/detail';
 export default function App() {
-  const editTodoRef=useRef(null);
-
   return (
     <View style={styles.container}>
-     <HomePage/>
-
-    
+   <TodoDetail/>
     </View>
   );
 }

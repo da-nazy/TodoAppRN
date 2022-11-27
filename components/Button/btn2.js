@@ -1,9 +1,9 @@
 import { TouchableOpacity,Text,StyleSheet } from "react-native"
 import { colors } from "../../asset/color"
 
-export const ButtonCont2=({name,txtColor})=>{
+export const ButtonCont2=({name,txtColor,func})=>{
     return(
-        <TouchableOpacity style={style.inputCont}>
+        <TouchableOpacity style={style.inputCont} onPress={()=>func&&func()}>
             <Text style={{...style.txt,color:txtColor?txtColor:colors.third}}>{name?name:'Sign In'}</Text>
         </TouchableOpacity>
     )

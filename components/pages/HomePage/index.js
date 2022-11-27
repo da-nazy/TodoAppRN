@@ -35,7 +35,7 @@ export const HomePage=()=>{
 
         </View>
         <ScrollView>
-            <TodoCard isActive={true} func={()=>openCreateTodo()}/>
+            <TodoCard  name ="David" isActive={true} func={()=>openCreateTodo()}/>
             <TodoCard isActive={false} func={()=>openCreateTodo()}/>
         </ScrollView>
         <TouchableOpacity style={style.fabCont} onPress={()=>openEditTodo()}>
