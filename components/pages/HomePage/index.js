@@ -7,7 +7,7 @@ import TodoCard from "../../HomePage/TodoCard";
 import Custombtm from "../../Util/Custombtm";
 import { CreateTodo } from '../../Todo';
 import { EditTodo } from '../../Todo/edit';
-export const HomePage=()=>{
+export const HomePage=({navigation})=>{
     const editTodoRef=useRef(null);
     const createTodoRef=useRef(null);
     const openEditTodo=()=>{
@@ -35,20 +35,20 @@ export const HomePage=()=>{
 
         </View>
         <ScrollView>
-            <TodoCard  name ="David" isActive={true} func={()=>openCreateTodo()}/>
-            <TodoCard isActive={false} func={()=>openCreateTodo()}/>
+            <TodoCard  name ="David" isActive={true} func={()=>navigation.navigate('Tododetail')}/>
+            <TodoCard isActive={false} func={()=>navigation.navigate('Tododetail')}/>
         </ScrollView>
-        <TouchableOpacity style={style.fabCont} onPress={()=>openEditTodo()}>
+        <TouchableOpacity style={style.fabCont} onPress={()=>openCreateTodo()}>
             <Icon name={'plus'} size={30} color={'#fff'}/>
         </TouchableOpacity>
         <Custombtm 
         displayComp={()=><CreateTodo/>} 
         btmRef={createTodoRef} 
-        height={Dimensions.get('screen').height} cod={true} copm={true}/>
-        <Custombtm 
-        displayComp={()=><EditTodo/>} 
-        btmRef={editTodoRef} 
-        height={Dimensions.get('screen').height} cod={true} copm={true}/>
+        height={Dimensions.get('screen').height}
+         cod={true} 
+         copm={true}/>
+         
+       
         </View>
     )
 }

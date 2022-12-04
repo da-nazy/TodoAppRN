@@ -5,7 +5,7 @@ import { colors } from '../../../asset/color';
 import todologo from '../../../asset/image/todologo.png';
 import { InputCont } from '../../Input';
 import { ButtonCont } from '../../Button/btn';
-export default function Signup() {
+export default function Signup({navigation}) {
   return (
    <View style={styles.cont}>
     <Image resizeMode='cover' source={todologo} style={styles.img}/>
@@ -17,7 +17,7 @@ export default function Signup() {
     <ButtonCont name={'Sign up'}/>
     <View style={styles.signTxtCont}>
       <Text style={styles.dhaTxt}>Have an account? </Text>
-      <TouchableOpacity style={styles.signupCont}>
+      <TouchableOpacity style={styles.signupCont} onPress={()=>navigation.navigate('Signin')}>
         <Text style={styles.suTxt}>Log In</Text>
       </TouchableOpacity>
     </View>

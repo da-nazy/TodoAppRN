@@ -1,10 +1,16 @@
-import react,{useState} from 'react';
+import react,{useState,useRef} from 'react';
 import { View,StyleSheet,Dimensions,TouchableOpacity,Text } from "react-native"
-import Icon  from "react-native-vector-icons/FontAwesome5"
+import Icon  from "react-native-vector-icons/FontAwesome5";
+import { EditTodo } from './edit';
+import Custombtm from '../Util/Custombtm';
 import { DeleteTodo } from "./delete";
-export const TodoDetail=()=>{
+export const TodoDetail=({navigation})=>{
     const [toggleDelete,setToggleDelete]=useState(false);
-
+    const editTodoRef=useRef();
+    const editTodo=()=>{
+      editTodoRef.current.open();
+    }
+  
     const AppIcon=({iconName,func})=>{
   return(
     <TouchableOpacity onPress={()=>func&&func()}>
@@ -15,10 +21,10 @@ export const TodoDetail=()=>{
     return(
         <View style={style.cont}>
        <View style={style.head}>
-        <AppIcon iconName="angle-left"/>
+        <AppIcon iconName="angle-left" func={()=>navigation.navigate('Homepage')}/>
        <View style={style.actionBtn}>
        <AppIcon iconName="clock"/>
-       <AppIcon iconName="pen"/>
+       <AppIcon iconName="pen" func={()=>editTodo()}/>
        <AppIcon iconName="trash-alt" func={()=>setToggleDelete(true)}/>
        </View>
        </View>
@@ -35,6 +41,13 @@ export const TodoDetail=()=>{
         Created at 1 Sept 2021
         </Text>
        </View>
+
+       <Custombtm 
+        displayComp={()=><EditTodo/>} 
+        btmRef={editTodoRef} 
+        height={Dimensions.get('screen').height}
+         cod={true} copm={true}/>
+
        {toggleDelete&&<DeleteTodo cancel={()=>setToggleDelete(false)}/>}
         </View>
     )
