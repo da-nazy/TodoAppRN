@@ -347,6 +347,7 @@ if (isNewArchitectureEnabled()) {
     // This will be applied to all the imported transtitive dependency.
     configurations.all {
         resolutionStrategy.dependencySubstitution {
+             force 'com.facebook.react:react-native:0.68.2'
             substitute(module("com.facebook.react:react-native"))
                     .using(project(":ReactAndroid"))
                     .because("On New Architecture we're building React Native from source")
