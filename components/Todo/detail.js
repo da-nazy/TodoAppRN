@@ -20,7 +20,7 @@ export const TodoDetail=({navigation})=>{
     };
     return(
         <View style={style.cont}>
-       <View style={style.head}>
+        <View style={style.head}>
         <AppIcon iconName="angle-left" func={()=>navigation.navigate('Homepage')}/>
        <View style={style.actionBtn}>
        <AppIcon iconName="clock"/>
