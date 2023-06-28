@@ -1,5 +1,5 @@
 import React from 'react'
-import { View,Text ,StyleSheet,Image, TouchableOpacity} from 'react-native'
+import { View,Text ,StyleSheet,Image, TouchableOpacity,ScrollView} from 'react-native'
 
 import { colors } from '../../../asset/color';
 import todologo from '../../../asset/image/todologo.png';
@@ -7,8 +7,8 @@ import { InputCont } from '../../Input';
 import { ButtonCont } from '../../Button/btn';
 export default function Signin({navigation}) {
   return (
-   <View style={styles.cont}>
-    <Image resizeMode='cover' source={todologo} style={styles.img}/>
+   <ScrollView  contentContainerStyle={styles.cont} >
+    <Image resizeMode='cover'  source={todologo} style={styles.img}/>
     <View style={{...styles.inputCont}}>
     <InputCont name={"Email"} secure={false}/>
     <InputCont name={"password"} secure={true} icon={"eye-slash"}/>
@@ -25,7 +25,7 @@ export default function Signin({navigation}) {
       </TouchableOpacity>
     </View>
     </View>
-   </View>
+   </ScrollView>
   )
 }
 
@@ -35,6 +35,9 @@ const styles=StyleSheet.create({
       minHeight:500,
       padding:20,
       alignItems:"center",
+      display:'flex',
+      flex:1,
+      justifyContent:'center'
     },
     fpCont:{
       flexDirection:'row',
@@ -49,8 +52,8 @@ const styles=StyleSheet.create({
        alignSelf:'flex-end'
     },
     img:{
-    width:200,
-    height:200
+    width:150,
+    height:150
     
     },
     txt:{

@@ -5,7 +5,7 @@ import { ButtonCont2 } from "../Button/btn2"
 export const EditTodo=()=>{
     return(
 <View style={style.cont}>
- <ScrollView style={{marginBottom:55}}>
+ <ScrollView style={{marginBottom:70}}>
  <InputCont 
   secure={false} 
   name="Title" 
@@ -46,9 +46,9 @@ export const EditTodo=()=>{
 const style=StyleSheet.create({
     cont:{
         padding:20,
-        height:Dimensions.get('screen').height,
         backgroundColor:colors.primary,
-        width:'100%'
+        width:'100%',
+        flex:1
     },
     descCont:{
          width:'100%',
